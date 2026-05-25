@@ -1,0 +1,23 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Heading from "~/components/Heading.astro";
+import Routingsections from "~/components/Routingsections.astro";
+import SimpleSection from "~/components/SimpleSection.astro";
+import Stepsection from "~/components/Stepsection.astro";
+import TestimonialsCarousel from "~/components/TestimonialCarrusel.astro";
+import ActionSection from "~/components/ActionSection.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <Heading />
+  <Routingsections />
+  <SimpleSection>
+    <Stepsection />
+  </SimpleSection>
+  <!-- TODO: Add testimonials carousel back in -->
+  <!-- <TestimonialsCarousel id="testimonials"/> -->
+  <ActionSection />
+</Layout>

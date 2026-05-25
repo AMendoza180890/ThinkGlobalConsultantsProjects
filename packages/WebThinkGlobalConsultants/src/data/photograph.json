@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"title": "Nicaragua - House of Hope",
+		"image": "/src/assets/portfolio/photograph/cover5.webp",
+		"alt": "Nicaragua - House of Hope",
+        "url": "nicaragua",
+        "description": "Photography from House of Hope, a shelter for women and children out of sex trafficking and prostitution in Managua, Nicaragua."
+	},
+	{
+		"id": 2,
+		"title": "Guatemala",
+		"image": "/src/assets/portfolio/photograph/cover3.webp",
+		"alt": "Guatemala",
+        "url": "guatemala",
+        "description": "Photography from children’s ministry with Casa Church in Mixco, Guatemala."
+	},
+	{
+		"id": 3,
+		"title": "Africa",
+		"image": "/src/assets/portfolio/photograph/cover1.webp",
+		"alt": "Africa",
+        "url": "africa",
+        "description": "Photography from Impact Africa’s schools ministry and evangelistic visits to squatter villages in Johannesburg, South Africa."
+	},
+	{
+		"id": 4,
+		"title": "Honduras",
+		"image": "/src/assets/portfolio/photograph/cover4.webp",
+		"alt": "Honduras",
+        "url": "honduras",
+        "description": "Photography from a construction project and children’s ministry on the side of a mountain in Comayagua, Honduras with Catracho Ministries."
+	},
+	{
+		"id": 5,
+		"title": "Nicaragua - Tesoros de Dios",
+		"image": "/src/assets/portfolio/photograph/cover6.webp",
+		"alt": "Nicaragua - Tesoros de Dios",
+        "url": "tesoros",
+        "description": "Photography from Tesoro’s de Dios, a ministry devoted to serving children with disabilities through physical therapy, horse therapy, and education in Managua, Nicaragua."
+	},
+	{
+		"id": 6,
+		"title": "El Salvador",
+		"image": "/src/assets/portfolio/photograph/cover2.webp",
+		"alt": "El Salvador",
+        "url": "elsalvador",
+        "description": "Photography from school and church visits in San Salvador, El Salvador with Global Passions."
+	}
+]

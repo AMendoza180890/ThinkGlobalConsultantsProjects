@@ -1,0 +1,179 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import SectionAbout from "~/components/SectionAbout.astro";
+import business from "~/assets/business/Business-page-photo.webp";
+import SectionTwoCols from "~/components/SectionTwoCols.astro";
+import FinalCTA from "~/components/FinalCTA.astro";
+import SectionFeature from "~/components/SectionFeature.astro";
+
+import { Image } from "astro:assets";
+import ButtonSquare from "~/components/ButtonSquare.astro";
+import RoutingsectionsWithFourBoxesDinamic from "~/components/RoutingsectionsWithFourBoxesDinamic.astro";
+import BoxesImages from "~/components/BoxesImages.astro";
+import businessHowtoHelp from "~/assets/business/how.webp";
+
+//icon for all page
+import CheckIcon from "~/assets/Icons/check-white.svg";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <SectionAbout
+    title="Build high-performing teams across cultures, markets, and borders."
+    description="We help global organizations turn cultural complexity into clarity, trust, and measurable performance."
+  >
+    <div slot="details" class="mt-6">
+      <ButtonSquare
+        link="/contact"
+        label="Request more information"
+      />
+    </div>
+    <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={business}
+        alt="Product screenshot"
+        class="w-full h-full object-cover object-center rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
+
+  <SectionTwoCols>
+    <div slot="left">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">Their Reality</h3>
+      <ul class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Teams spread across regions, time zones, and cultural norms</li>
+        <li>Misalignment between headquarters and local markets</li>
+        <li>Strong talent — but collaboration breaks down under pressure</li>
+        <li>DEI initiatives that feel symbolic instead of operational</li>
+      </ul>
+    </div>
+
+    <div slot="right">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">Business Impact</h3>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Missed growth in new markets</li>
+        <li>Friction inside leadership teams</li>
+        <li>Slower execution and decision-making</li>
+        <li>Costly talent loss and disengagement</li>
+      </ol>
+    </div>
+  </SectionTwoCols>
+
+  <SectionFeature
+    title="How We Help"
+    description="We work with leadership teams using the PRISM framework, a practical model for navigating differences in real business decisions."
+  >
+    <div slot="bulletpoint">
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <svg
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            data-slot="icon"
+            aria-hidden="true"
+            class="absolute top-1 left-1 size-5 text-indigo-600"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.704 5.29a.75.75 0 0 1 .006 1.06l-7.25 7.3a.75.75 0 0 1-1.07-.002l-3.1-3.12a.75.75 0 1 1 1.064-1.056l2.568 2.582 6.72-6.76a.75.75 0 0 1 1.062-.004Z"
+            ></path>
+          </svg>
+
+          Cultural intelligence for leaders
+        </dt>
+      </div>
+
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <svg
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            data-slot="icon"
+            aria-hidden="true"
+            class="absolute top-1 left-1 size-5 text-indigo-600"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.704 5.29a.75.75 0 0 1 .006 1.06l-7.25 7.3a.75.75 0 0 1-1.07-.002l-3.1-3.12a.75.75 0 1 1 1.064-1.056l2.568 2.582 6.72-6.76a.75.75 0 0 1 1.062-.004Z"
+            ></path>
+          </svg>
+
+          Decision-making across value systems
+        </dt>
+      </div>
+
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <svg
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            data-slot="icon"
+            aria-hidden="true"
+            class="absolute top-1 left-1 size-5 text-indigo-600"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.704 5.29a.75.75 0 0 1 .006 1.06l-7.25 7.3a.75.75 0 0 1-1.07-.002l-3.1-3.12a.75.75 0 1 1 1.064-1.056l2.568 2.582 6.72-6.76a.75.75 0 0 1 1.062-.004Z"
+            ></path>
+          </svg>
+
+          Communication across cultures
+        </dt>
+      </div>
+
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <svg
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            data-slot="icon"
+            aria-hidden="true"
+            class="absolute top-1 left-1 size-5 text-indigo-600"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.704 5.29a.75.75 0 0 1 .006 1.06l-7.25 7.3a.75.75 0 0 1-1.07-.002l-3.1-3.12a.75.75 0 1 1 1.064-1.056l2.568 2.582 6.72-6.76a.75.75 0 0 1 1.062-.004Z"
+            ></path>
+          </svg>
+
+          Building shared norms without forcing uniformity
+        </dt>
+      </div>
+    </div>
+
+    <div slot="image">
+      <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+        <Image
+          width="2432"
+          height="1442"
+          src={businessHowtoHelp}
+          alt="Product screenshot"
+          class="h-130 w-full object-cover overflow-hidden rounded-2xl"
+        />
+      </div>
+    </div>
+  </SectionFeature>
+
+  <RoutingsectionsWithFourBoxesDinamic
+    title="Our Approach"
+    paragraph="We help global organizations build cultural intelligence in their leadership teams and across their organizations."
+  >
+    <div slot="boxes" class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <BoxesImages icon={CheckIcon} title="Faster alignment across regions."/>
+        <BoxesImages icon={CheckIcon} title="Leaders confident navigating cultural tension" />
+        <BoxesImages icon={CheckIcon} title="Fewer misunderstandings, clearer accountability" />
+        <BoxesImages icon={CheckIcon} title="Culture as a performance advantage, not a risk" />
+    </div>
+</RoutingsectionsWithFourBoxesDinamic>
+
+    <FinalCTA />
+</Layout>

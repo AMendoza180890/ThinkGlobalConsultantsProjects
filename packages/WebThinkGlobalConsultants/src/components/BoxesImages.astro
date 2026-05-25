@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+const {icon, title, description, color} = Astro.props;
+---
+
+<article
+        class={`bg-[${color?color:'#3C788C'}] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm`}
+      >
+        <!-- Favicon / icon -->
+        <Image src={icon} alt="School Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          {title}
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          {description}
+        </p>
+</article>

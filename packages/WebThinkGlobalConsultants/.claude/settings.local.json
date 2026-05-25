@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm audit *)",
+      "Bash(pnpm outdated *)",
+      "Bash(dir /b src)",
+      "Bash(pnpm info *)",
+      "Bash(pnpm search *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm run *)",
+      "Bash(Remove-Item -Recurse -Force .vercel\\\\output -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue)",
+      "Bash(git check-ignore *)",
+      "Bash(timeout 15 pnpm astro check)",
+      "Bash(pnpm list *)",
+      "Bash(pnpm update *)",
+      "Bash(pnpm why *)",
+      "Bash(node -e \"const sharp = require\\('sharp'\\); console.log\\('sharp version:', sharp.versions.sharp\\);\")"
+    ]
+  }
+}

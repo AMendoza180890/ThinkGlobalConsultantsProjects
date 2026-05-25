@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+
+//icons
+import Business from "~/assets/Icons/business-white.svg";
+import School from "~/assets/Icons/school-white.svg";
+import Ngo from "~/assets/Icons/ngo-white.svg";
+---
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="text-4xl font-semibold tracking-tight text-balance text-[#3C788C] sm:text-5xl"
+      >
+        Reduce Friction. Align Your Team. Achieve Results.
+      </h2>
+    </div>
+    <div
+      class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={Business} alt="Business Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          Businesses / Global Organizations
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Reduce cultural friction and align leadership
+        </p>
+
+        <!-- Button -->
+        <a
+          href="/our-customers/business-global-organization"
+          class="mt-5 inline-flex items-center justify-center rounded-lg border border-white-500 bg-gray-500 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+        >
+          Learn More
+        </a>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={School} alt="School Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          International Schools
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Improve leadership cohesion and teacher/student outcomes
+        </p>
+
+        <!-- Button -->
+        <a
+          href="/our-customers/international-school"
+          class="mt-5 inline-flex items-center justify-center rounded-lg border border-white-500 bg-gray-500 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+        >
+          Learn More
+        </a>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image
+          src={Ngo}
+          alt="Non-profit organization Icon"
+          class="mx-auto h-12 w-12"
+        />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          Non-Profit Organizations
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Smooth cross-cultural operations and team alignment
+        </p>
+
+        <!-- Button -->
+        <a
+          href="/our-customers/ngos-nonprofit"
+          class="mt-5 inline-flex items-center justify-center rounded-lg border border-white-500 bg-gray-500 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+        >
+          Learn More
+        </a>
+      </article>
+    </div>
+  </div>
+</div>

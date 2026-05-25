@@ -1,0 +1,34 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="relative overflow-hidden bg-gray-50">
+  <div
+    aria-hidden="true"
+    class="hidden sm:absolute sm:inset-0 sm:block sm:size-full pointer-events-none -z-10"
+  ></div>
+
+  <div class="relative z-10 mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
+    <div class="text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-balance text-[#3C788C] sm:text-5xl">
+        Ready to make cultural intelligence a part of your business?
+      </h2>
+
+      <p class="mx-auto mt-3 max-w-md text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
+        Let's start with a conversation about your business's goals.
+      </p>
+
+      <div class="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
+        <div class="rounded-md shadow-sm">
+          <Button
+            link="/contact"
+            classColor="flex w-full items-center justify-center rounded-md border border-transparent bg-[#014650] px-8 py-3 text-base font-medium text-white hover:opacity-90 md:px-10 md:py-4 md:text-lg"
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

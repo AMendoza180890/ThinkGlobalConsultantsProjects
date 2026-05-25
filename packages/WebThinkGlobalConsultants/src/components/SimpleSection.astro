@@ -1,0 +1,8 @@
+---
+const { customeColor, id } = Astro.props;
+const color = "#014650";
+---
+
+<section id={id} class={`w-full bg-[${customeColor || color}]`}>
+  <slot />
+</section>

@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 200 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 15%;
+
+    --primary: 168 55% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 15% 95%;
+    --secondary-foreground: 200 25% 15%;
+
+    --muted: 200 15% 93%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 28 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 15% 88%;
+    --input: 200 15% 88%;
+    --ring: 168 55% 38%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 174 63% 40%;
+    --chart-2: 189 52% 36%;
+    --chart-3: 196 62% 52%;
+    --chart-4: 158 45% 48%;
+    --chart-5: 207 55% 45%;
+
+    --sidebar-background: 200 62% 14%;
+    --sidebar-foreground: 210 20% 80%;
+    --sidebar-primary: 174 47% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 55% 18%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 200 50% 18%;
+    --sidebar-ring: 174 47% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+

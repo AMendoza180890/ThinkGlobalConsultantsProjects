@@ -1,0 +1,55 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import SectionAbout from "~/components/SectionAbout.astro";
+import CQforSchool from "~/assets/cqforschool/Globe-CQ-for-Schools-Photo.webp";
+
+import { Image } from "astro:assets";
+import TabVertical from "~/components/TabVertical.astro";
+import SimpleSection from "~/components/SimpleSection.astro";
+import ButtonSquare from "~/components/ButtonSquare.astro";
+import StepJourneySection from "~/components/StepJourneySection.astro";
+import SectionCallAction from "~/components/SectionCallAction.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <SectionAbout
+    title="Build Cultural Intelligence Across Your School Community"
+  >
+    <div slot="details" class="mt-6">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>Teachers struggle with multicultural classrooms</li>
+        <li>Leadership teams lack insight into cross-cultural dynamics</li>
+        <li>Parents and staff feel disconnected</li>
+      </ul>
+      <p class="mt-4 text-gray-700">
+        The CQ for Schools program helps your school reduce classroom
+        friction, empower teachers, and strengthen parent and staff engagement.
+      </p>
+
+      <ButtonSquare link="/contact" label="Request a Pilot" />
+    </div>
+    <div slot="image" class="h-110 w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={CQforSchool}
+        alt="Product screenshot"
+        class="w-full h-full object-cover object-center rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
+
+  <SimpleSection>
+    <StepJourneySection />
+  </SimpleSection>
+
+  <SimpleSection customeColor="#fff">
+    <TabVertical>
+  </SimpleSection>
+
+<SectionCallAction title="Start Building CQ in Your School" paragraph="Book a free consultation to explore a pilot program." button1="Learn More" />
+</Layout>

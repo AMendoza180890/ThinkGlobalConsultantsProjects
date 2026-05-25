@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"title": "Tesoros de Dios - Website",
+		"image": "/src/assets/portfolio/itsupport/tesoroswebsite.webp",
+		"alt": "Tesoros de Dios - Website",
+        "url": "https://tesorosdedios.org/",
+        "description": "Developed a website for Tesoros de Dios, a non-profit organization dedicated to providing educational resources and support to underprivileged children in Latin America."
+	},
+	{
+		"id": 2,
+		"title": "Tesoros de Dios - Library system",
+		"image": "/src/assets/portfolio/itsupport/Bibliotecatesorosdedios.webp",
+		"alt": "Tesoros de Dios - Library system",
+        "url": "https://www.biblioteca.tesorosdedios.org/ingreso",
+        "description": "Created a database for Tesoros de Dios, allowing users to search resources, information and treatments for those with disabilities. This was designed as a library of information to share with churches, schools and other organizations to help them better serve individuals with special needs."
+	},
+	{
+		"id": 3,
+		"title": "Personal Portfolio Website",
+		"image": "/src/assets/portfolio/itsupport/allanmendoza.webp",
+		"alt": "Personal Portfolio Website",
+        "url": "https://allanmendoza.tech/",
+        "description": "View my personal portfolio website that showcases projects, skills, and experience as a Full Stack Developer."
+	}
+]

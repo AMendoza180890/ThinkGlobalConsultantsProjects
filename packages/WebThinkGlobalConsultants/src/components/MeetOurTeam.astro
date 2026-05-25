@@ -1,0 +1,59 @@
+---
+const {name1, name2, name3, name4, name5, role1, role2, role3, role4, role5, description1, description2, description3, description4, description5} = Astro.props;
+
+import {Image} from 'astro:assets';
+//team picture
+import Zach from '~/assets/team/Zach.jpeg';
+import Lindsey from '~/assets/team/Lindsey.jpeg';
+import Callie from '~/assets/team/Callie.jpeg';
+import Andrew from '~/assets/team/Andrew-FAVE.jpg';
+import Daniel from '~/assets/team/Daniel.jpg';
+
+import Button from '~/components/Button.astro';
+---
+
+<section  class="bg-white py-10 sm:py-10">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Our team</h2>
+      <p class="mt-6 text-lg/8 text-gray-600">The people behind the frameworks and outcomes.</p>
+    </div>
+    <ul role="list"
+  class="mx-auto mt-20 flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-14 px-4">
+      <li class="w-full max-w-xs">
+        <Image src={Zach} alt="Team Member Think Global Consultant" class="aspect-14/13 w-full rounded-2xl object-cover object-top outline-1 -outline-offset-1 outline-black/5" />
+        <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">{name1}</h3>
+        <p class="text-base/7 text-gray-600">{role1}</p>
+        <p class="text-sm/6 text-gray-500">{description1}</p>
+      </li>
+      <li class="w-full max-w-xs">
+        <Image src={Callie} alt="Team Member Think Global Consultant" class="aspect-14/13 w-full rounded-2xl object-cover object-top outline-1 -outline-offset-1 outline-black/5" />
+        <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">{name2}</h3>
+        <p class="text-base/7 text-gray-600">{role2}</p>
+        <p class="text-sm/6 text-gray-500">{description2}</p>
+      </li>
+      <li class="w-full max-w-xs">
+        <Image src={Lindsey} alt="Team Member Think Global Consultant" class="aspect-14/13 w-full rounded-2xl object-cover object-top outline-1 -outline-offset-1 outline-black/5" />
+        <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">{name3}</h3>
+        <p class="text-base/7 text-gray-600">{role3}</p>
+        <p class="text-sm/6 text-gray-500">{description3}</p>
+      </li>
+      <li class="w-full max-w-xs">
+        <Image src={Andrew} alt="Team Member Think Global Consultant" class="aspect-14/13 w-full rounded-2xl object-cover object-top outline-1 -outline-offset-1 outline-black/5" />
+        <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">{name4}</h3>
+        <p class="text-base/7 text-gray-600">{role4}</p>
+        <p class="text-sm/6 text-gray-500">{description4}</p>
+      </li>
+      <li class="w-full max-w-xs">
+        <Image src={Daniel} alt="Team Member Think Global Consultant" class="aspect-14/13 w-full rounded-2xl object-cover object-top outline-1 -outline-offset-1 outline-black/5" />
+        <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">{name5}</h3>
+        <p class="text-base/7 text-gray-600">{role5}</p>
+        <p class="text-sm/6 text-gray-500">{description5}</p>
+      </li>
+    </ul>
+  </div>
+
+    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none align-items-center text-center">
+      <Button link="/contact">Request a Consultation</Button>
+    </div>
+</section>

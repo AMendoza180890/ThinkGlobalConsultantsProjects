@@ -1,0 +1,8 @@
+{
+  "name": "think-global-consultants-projects",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for Think Global Consultants projects.",
+  "author": "AMendoza1890",
+  "license": "ISC"
+}

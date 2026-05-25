@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c rename \"c:\\\\Users\\\\allan\\\\Downloads\\\\Proyectos\\\\Malaysia\\\\ThinkGlobalConsultantsProjects\\\\pakages\" \"packages\")",
+      "Bash(cmd /c \"cd /d \\\\\"c:\\\\Users\\\\allan\\\\Downloads\\\\Proyectos\\\\Malaysia\\\\ThinkGlobalConsultantsProjects\\\\\" && rename pakages packages && echo DONE\")",
+      "Bash(cmd /c \"dir \\\\\"c:\\\\Users\\\\allan\\\\Downloads\\\\Proyectos\\\\Malaysia\\\\ThinkGlobalConsultantsProjects\\\\\"\")",
+      "PowerShell(Get-ChildItem -LiteralPath \"C:\\\\Users\\\\allan\\\\Downloads\\\\Proyectos\\\\Malaysia\\\\ThinkGlobalConsultantsProjects\\\\packages\\\\CQ-For-School\" -Force | ForEach-Object { $_.Name })"
+    ]
+  }
+}

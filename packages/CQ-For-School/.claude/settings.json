@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:8080)",
+      "Bash(grep -h \"import.*recharts\\\\|LineChart\\\\|BarChart\\\\|RadarChart\" /c/Users/Andrew/CQ-loveable/src/pages/*.tsx)",
+      "Read(//c/Users/Andrew/CQ-loveable/src/**)",
+      "Bash(npm install:*)",
+      "Bash(npx impeccable *)",
+      "Bash(node \"C:/Users/Andrew/.claude/plugins/cache/impeccable/impeccable/2.1.1/.claude/skills/impeccable/scripts/cleanup-deprecated.mjs\")",
+      "Bash(node \"C:\\\\Users\\\\Andrew\\\\.claude\\\\plugins\\\\cache\\\\impeccable\\\\impeccable\\\\2.1.1\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\cleanup-deprecated.mjs\")",
+      "Read(//c/c/Users/Andrew/CQ-loveable/src/**)",
+      "Read(//c/c/Users/Andrew/CQ-loveable/src/pages/**)",
+      "Bash(npx vite *)",
+      "Read(//c/Users/Andrew/.claude/plugins/cache/impeccable/impeccable/2.1.1/.claude/skills/impeccable/**)",
+      "WebFetch(domain:localhost)",
+      "Bash(git checkout *)",
+      "Read(//c/Users/Andrew/Downloads/3dcb86f2-4c3b-404f-b555-a9ea33e845ff/src/**)",
+      "Read(//c/Users/Andrew/Downloads/3dcb86f2-4c3b-404f-b555-a9ea33e845ff/**)",
+      "Bash(xargs sed *)",
+      "Bash(grep -v \"text-\\\\|bg-\\\\|border-\\\\|ring-\\\\|className\\\\|//\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Andrew\\Downloads\\3dcb86f2-4c3b-404f-b555-a9ea33e845ff\\public"
+    ]
+  }
+}

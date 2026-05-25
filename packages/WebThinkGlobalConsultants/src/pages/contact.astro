@@ -1,0 +1,237 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import HeaderSection from "~/components/HeaderSection.astro";
+import CalendlyAppointment from "~/components/CalendlyAppointment.astro";
+import StepWhatHappenedNext from "~/components/StepWhatHappenedNext.astro";
+import SimpleSection from "~/components/SimpleSection.astro";
+import SectionFrecuencyQuestions from "~/components/SectionFrecuencyQuestions.astro";
+import GridButton from "~/components/GridButton.astro";
+
+import {actions} from "astro:actions";
+import { isInputError } from "astro:actions";
+
+const result = Astro.getActionResult(actions.send);
+
+if (result?.data) {
+  return Astro.redirect("/thank-you")
+}
+
+const inputError = isInputError(result?.error) ? result.error.fields : {}
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <HeaderSection
+    title="Contact Us"
+    description="If you're exploring cross-cultural leadership development, cultural intelligence training, or support for globally diverse teams, we'd love to learn more about your context."
+  />
+
+  <SimpleSection customeColor="#fff">
+    <div class="relative bg-white">
+      <div class="absolute inset-0">
+        <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50"></div>
+      </div>
+      <div class="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
+        <div
+          class="bg-gray-50 px-6 py-16 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12"
+        >
+          <div class="mx-auto max-w-lg">
+            <h2
+              class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl"
+            >
+              Get in touch
+            </h2>
+            <p class="mt-3 text-lg/6 text-gray-500">
+              You can send us a message using the form below or contact us via email:
+            </p>
+            <dl class="mt-8 text-base text-gray-500">
+              <div>
+                <dt class="sr-only">Postal address</dt>
+                <dd>
+                  <p>11816 Inwood Road #3076</p>
+                  <p> Dallas, TX 75244</p>
+                </dd>
+              </div>
+              <div class="mt-3">
+                <dt class="sr-only">Email</dt>
+                <dd class="flex">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    data-slot="icon"
+                    aria-hidden="true"
+                    class="size-6 shrink-0 text-gray-400"
+                  >
+                    <path
+                      d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                  <span class="ml-3"><a href="mailto:Info@thinkglobalconsultants.com">Info@thinkglobalconsultants.com</a></span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div
+          class="bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12"
+        >
+          <div class="mx-auto max-w-lg lg:max-w-none">
+            <form action={actions.send} method="post" class="grid grid-cols-1 gap-y-6">
+              <div>
+                <label for="username" class="sr-only">Name</label>
+                <input
+                  id="username"
+                  type="text"
+                  name="username"
+                  placeholder="Full name"
+                  autocomplete="username"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.username ? "name-error": undefined}
+                  required
+                />
+                 {inputError.username && <p id="username-error">{inputError.username[0]}</p>}
+              </div>
+              <div>
+                <label for="organization" class="sr-only">Organization Name</label>
+                <input
+                  id="organization"
+                  type="text"
+                  name="organization"
+                  placeholder="Organization Name"
+                  autocomplete="organization"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.organization ? "organization-error": undefined}
+                  required
+                />
+                {inputError.organization && <p id="organization-error">{inputError.organization[0]}</p>}
+              </div>
+
+              <div>
+                <label for="role" class="sr-only">Role</label>
+                <input
+                  id="role"
+                  type="text"
+                  name="role"
+                  placeholder="Role"
+                  autocomplete="role"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.role ? "role-error": undefined}
+                  required
+                />
+                {inputError.role && <p id="role-error">{inputError.role[0]}</p>}
+              </div>
+
+              <div>
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  autocomplete="email"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.email ? "email-error": undefined}
+                  required
+                />
+                {inputError.email && <p id="email-error">{inputError.email[0]}</p>}
+              </div>
+
+              <div>
+                <label for="organizationtype" class="sr-only">Organization Type</label>
+                <select
+                  id="organizationtype"
+                  name="organizationtype"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]" required
+                  aria-describedby={inputError.organizationtype ? "organizationtype-error": undefined}
+                >
+                  <option value="">Select Organization Type</option>
+                  <option value="Business">Business</option>
+                  <option value="School">School</option>
+                  <option value="NGO/ Non-Profit">NGO/ Non-Profit</option>
+                </select>
+                {inputError.organizationtype && <p id="organizationtype-error">{inputError.organizationtype[0]}</p>}
+              </div>
+
+              <div>
+                <label for="message" class="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Message"
+                  class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-indigo-500 focus:ring-indigo-500" required
+                  aria-describedby={inputError.message ? "message-error": undefined}
+                ></textarea>
+                {inputError.message && <p id="message-error">{inputError.message[0]}</p>}
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  class="inline-flex w-full justify-center rounded-md border border-transparent bg-[#014650] px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-[#014650] focus:ring-2 focus:ring-[#014650] focus:ring-offset-2 focus:outline-hidden"
+                  >Submit</button
+                >
+              </div>
+
+            </form>
+            <span id="schedule-meeting"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SimpleSection>
+
+  <!-- Calendly inline widget script -->
+  <!-- <SimpleSection customeColor="#fff" >
+    <h2
+      class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl text-center mb-10"
+    >
+      Or schedule a meeting directly:
+    </h2>
+    <CalendlyAppointment />
+  </SimpleSection> -->
+
+  <SimpleSection>
+    <StepWhatHappenedNext
+      title="What Happens Next?"
+      heading1="We review your message"
+      heading2="We'll respond within 2 business days to schedule a conversation about your goals and challenges."
+      heading3="We start with a conversation about your goals, challenges, and context to determine how we can best support you."
+    />
+  </SimpleSection>
+
+  <SimpleSection>
+    <SectionFrecuencyQuestions
+      title="Frequently Asked Questions"
+      question1="Who do you typically work with?"
+      answer1="We work with global businesses, international schools, and mission-driven organizations navigating cross-cultural complexity."
+      question2="Do you offer one-off workshops or long-term engagements?"
+      answer2="Both. We tailor our approach based on your goals, timeline, and organizational context."
+      question3="Do you work internationally?"
+      answer3="Yes. We work with organizations and schools across regions and time zones."
+    />
+  </SimpleSection>
+
+  <SimpleSection customeColor="#fff">
+   <h2 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl text-center mb-10">Explore More</h2>
+    <GridButton
+      text1="PRISM"
+      link1="/our-services/prism"
+      text2="CQ for Schools"
+      link2="/our-services/cq-for-school"
+      text3="For Businesses"
+      link3="/our-customers/business-global-organization"
+      text4="For International Schools"
+      link4="/our-customers/international-school"
+      text5="For NGOs"
+      link5="/our-customers/ngos-nonprofit"
+      text6="CQ Assessment"
+      link6="our-services/cq-assessment"/>
+  </SimpleSection>
+
+</Layout>

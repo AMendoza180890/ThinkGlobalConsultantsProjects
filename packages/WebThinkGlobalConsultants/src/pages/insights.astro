@@ -1,0 +1,91 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import HeaderSectionSimple from "~/components/HeaderSectionSimple.astro";
+import BlogSection from "~/components/BlogSection.astro";
+import SectionTwoCols from "~/components/SectionTwoCols.astro";
+import SectionCallAction from "~/components/SectionCallAction.astro";
+
+//For Blog
+import { getLastestPost } from "~/lib/wp.ts";
+
+const posts = await getLastestPost({ perPage: 20 });
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <HeaderSectionSimple
+    title="Insights on Cultural Intelligence & Global Leadership"
+    paragraph="The Prism Insights hub brings together expert articles and real-world case studies on cultural intelligence, cross-cultural leadership, and working effectively across cultures."
+    paragraph1="Our insights are grounded in practical consulting experience with global organizations, international schools, and mission-driven institutions."
+  />
+
+  <BlogSection>
+    {
+      posts.map((info: (typeof posts)[number]) => (
+        <article
+          slot="article"
+          class="flex flex-col items-start justify-between"
+        >
+          <div class="relative w-full">
+            <img
+              src={info.featuredImage}
+              alt={info.title}
+              class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+            />
+            <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10" />
+          </div>
+          <div class="flex max-w-xl grow flex-col justify-between">
+            <div class="group relative grow">
+              <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                <a href={`/post/${info.slug}`}>
+                  <span class="absolute inset-0" />
+                  {info.title}
+                </a>
+              </h3>
+              <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+                <div class="text-gray-700" set:html={info.excerpt} />
+              </p>
+            </div>
+            <div class="group relative grow"></div>
+          </div>
+        </article>
+      ))
+    }
+  </BlogSection>
+
+  <SectionTwoCols>
+    <div slot="left">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+        Topics We Explore
+      </h3>
+      <ul class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Cultural intelligence (CQ)</li>
+        <li>Cross-cultural leadership</li>
+        <li>Global team performance</li>
+        <li>Organizational culture</li>
+        <li>International education leadership</li>
+        <li>NGOs and cross-border collaboration</li>
+      </ul>
+    </div>
+
+    <div slot="right">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+        Who These Insights Are For
+      </h3>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Global business leaders</li>
+        <li>International school leadership teams</li>
+        <li>NGOs and nonprofit executives</li>
+        <li>HR, L&D, and people leaders</li>
+      </ol>
+    </div>
+  </SectionTwoCols>
+
+  <SectionCallAction
+    title="Looking for insights tailored to your organization?"
+    button1="Explore Prism Consulting"
+    button2="Explore CQ for Schools"
+  />
+</Layout>

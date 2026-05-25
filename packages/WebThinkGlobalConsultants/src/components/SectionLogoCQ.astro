@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import logo1 from "~/assets/logos/CQ_Fellows_logo.png";
+import logo2 from "~/assets/logos/CQ-Logo.webp";
+import logo3 from "~/assets/logos/PRISM and Global TeamLEAD.webp";
+---
+
+<div class="bg-[#3C788C] py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h2
+      class="text-4xl text-center font-semibold tracking-tight text-balance text-white sm:text-5xl"
+    >
+      Professional Affiliations & Certifications
+    </h2>
+    <div
+      class="mx-auto mt-10 flex max-w-lg items-center justify-center gap-x-10"
+    >
+      <Image
+        src={logo1}
+        alt="Transistor"
+        class="max-w h-50 object-contain"
+      />
+      <Image
+        src={logo2}
+        alt="Reform"
+        class="max-w h-50 object-contain"
+      />
+      <Image
+        src={logo3}
+        alt="Reform"
+        class="max-w h-50 object-contain"
+      />
+    </div>
+  </div>
+</div>

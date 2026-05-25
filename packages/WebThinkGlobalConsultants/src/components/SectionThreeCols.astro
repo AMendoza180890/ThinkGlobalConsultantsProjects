@@ -1,0 +1,55 @@
+---
+const { header,title1, title2, title3, description1, description2, description3 } = Astro.props;
+---
+
+<div class="bg-white py-10 sm:py-10">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">{header}</h2>
+    </div>
+    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <article class="flex flex-col items-start justify-between">
+        <div class="relative w-full">
+          <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10"></div>
+        </div>
+        <div class="flex max-w-xl grow flex-col justify-between">
+          <div class="group relative grow">
+            <h3 class="mt-3 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
+              {title1}
+            </h3>
+            <p class="mt-6 text-lg/8 text-gray-700">{description1}</p>
+          </div>
+      </article>
+
+      <article class="flex flex-col items-start justify-between">
+        <div class="relative w-full">
+          <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10"></div>
+        </div>
+        <div class="flex max-w-xl grow flex-col justify-between">
+          <div class="group relative grow">
+            <h3 class="mt-3 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                {title2}
+              </a>
+            </h3>
+            <p class="mt-6 text-lg/8 text-gray-700">{description2}</p>
+          </div>
+      </article>
+
+      <article class="flex flex-col items-start justify-between">
+        <div class="relative w-full">
+          <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10"></div>
+        </div>
+        <div class="flex max-w-xl grow flex-col justify-between">
+          <div class="group relative grow">
+            <h3 class="mt-3 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
+                {title3}
+            </h3>
+            <p class="mt-6 text-lg/8 text-gray-700">{description3}</p>
+          </div>
+      </article>
+
+    </div>
+  </div>
+</div>

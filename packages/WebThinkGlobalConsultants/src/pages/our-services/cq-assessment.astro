@@ -1,0 +1,94 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import SectionAbout from "~/components/SectionAbout.astro";
+import CQforSchool from "~/assets/cqforschool/unsplashFullVersion.jpg";
+
+import { Image } from "astro:assets";
+import Stepsection from "~/components/CQStepsection.astro";
+import SimpleSection from "~/components/SimpleSection.astro";
+import ButtonSquare from "~/components/ButtonSquare.astro";
+import SectionCenter from "~/components/SectionCenter.astro";
+import SectionCallAction from "~/components/SectionCallAction.astro";
+import SectionThreeCols from "~/components/SectionThreeCols.astro";
+import SectionLogosCQ from "~/components/SectionLogoCQ.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <SectionAbout title="Unlock Your Team's Cultural Intelligence Potential">
+    <div slot="details" class="mt-6">
+      <p class="mt-4 text-gray-700 pb-5">
+        Reduce misunderstandings, improve collaboration, and develop a
+        high-performing, culturally aware team.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>
+          Miscommunication slows critical decision-making across diverse teams.
+        </li>
+        <li>
+          Team members struggle to adapt to different cultural norms and work
+          styles.
+        </li>
+        <li>
+          Leadership misinterprets priorities and accountability expectations.
+        </li>
+        <li>
+          Collaboration suffers due to unrecognized biases and assumptions.
+        </li>
+      </ul>
+
+      <ButtonSquare
+        link="/contact"
+        label="Start Your CQ Assessment"
+      />
+    </div>
+    <div slot="image" class="h-110 w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={CQforSchool}
+        alt="Product screenshot"
+        class="w-full h-full object-cover object-center rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
+
+  <SectionCenter />
+
+  <SectionThreeCols
+    header="CQ Development Workshops"
+    title1="Developing CQ Workshop"
+    title2="CQ for Teams Workshop"
+    title3="Unconscious Bias Workshop"
+    description1="Build your individual cultural intelligence and learn practical strategies to adapt your communication across cultures."
+    description2="Strengthen team alignment, improve cross-cultural collaboration, and reduce friction in global projects."
+    description3="Identify hidden biases, enhance inclusive leadership, and create a culture of equity and understanding."
+  />
+
+  <SimpleSection>
+    <Stepsection />
+  </SimpleSection>
+
+  <SectionThreeCols
+    header="Designed for Organizations Like Yours"
+    title1="Global Businesses"
+    title2="International Schools"
+    title3="Non-Profit Organizations"
+    description1="Align teams and reduce friction in international operation."
+    description2="Improve leadership cohesion and students outcomes."
+    description3="Enable smoother across-cultural operations and collaboration."
+  />
+
+    <SectionLogosCQ />
+
+  <SimpleSection customeColor="#fff">
+    <SectionCallAction
+      title="Get Started Today"
+      paragraph="Request an assessment or Talk To Us to explore the right path for your team."
+      button1="Contact us to explore"
+    />
+  </SimpleSection>
+</Layout>

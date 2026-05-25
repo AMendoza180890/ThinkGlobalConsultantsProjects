@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+
+//icons
+import Heart from "~/assets/Icons/heart-white.svg";
+import School from "~/assets/Icons/school-white.svg";
+import Signal from "~/assets/Icons/signal-white.svg";
+import Book from "~/assets/Icons/book-white.svg";
+---
+
+<div class="bg-white py-24 sm:py-10">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="text-4xl font-semibold tracking-tight text-balance text-[#3C788C] sm:text-5xl"
+      >
+        How We Help
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        We partner with school leadership to embed cultural intelligence across curriculum, staff development, and community engagement using our CQ for Schools program.
+    </div>
+    <div
+      class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-4"
+    >
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={School} alt="School Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          CQ-integrated curriculum
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Weave cultural intelligence into existing programs
+        </p>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={Book} alt="Book Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          Teacher training & support
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Equip educators to lead in diverse classrooms
+        </p>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image
+          src={Heart}
+          alt="Heart Icon"
+          class="mx-auto h-12 w-12"
+        />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          Parent & family engagement
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Bridge cultural gaps within the school community
+        </p>
+      </article>
+
+       <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image
+          src={Signal}
+          alt="Signal Icon"
+          class="mx-auto h-12 w-12"
+        />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          Leadership coaching
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          Build culturally responsive school leadership
+        </p>
+      </article>
+    </div>
+  </div>
+</div>

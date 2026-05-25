@@ -1,0 +1,465 @@
+---
+import { Image } from "astro:assets";
+import logoImagen from "~/assets/logos/TGC-logo.png";
+
+const rmTrailingSlash = (path: string): string =>
+  path.endsWith("/") && path.length > 1 ? path.slice(0, -1) : path;
+
+const normalize = (p: string): string => (p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p);
+
+const currentPath = normalize(rmTrailingSlash(Astro.url.pathname));
+
+const isActive = (url: string) => normalize(url) === currentPath;
+const isActivePrefix = (url: string) => {
+  const u = normalize(url);
+  return currentPath === u || currentPath.startsWith(u + "/");
+};
+
+// Dropdown actives
+const servicesActive = 
+isActivePrefix("/our-services/prism")||
+isActivePrefix("/our-services/cq-for-organization")||
+isActivePrefix("/our-services/cq-assessment");
+
+const customersActive =
+  isActivePrefix("/our-customers/business-global-organization") ||
+  isActivePrefix("/our-customers/international-school") ||
+  isActivePrefix("/our-customers/ngos-nonprofit");
+---
+
+<header x-data="{ open: false }" @keydown.window.escape="open = false">
+  <div class="fixed inset-x-0 top-0 z-50 h-24 bg-white shadow-sm">
+    <nav class="flex h-24 items-center justify-between px-6 lg:px-12" aria-label="Global">
+      <!-- LOGO -->
+      <a href="/" class="-m-1.5 flex shrink-0 items-center p-1.5">
+        <Image src={logoImagen} class="h-20 w-auto" alt="Think Global Consultants Logo" />
+      </a>
+
+      <!-- Toggle mobile -->
+      <button
+        class="z-60 flex size-10 items-center justify-center lg:hidden"
+        @click="open = !open"
+        aria-label="Toggle menu"
+      >
+        <!-- Hamburger -->
+        <svg
+          x-show="!open"
+          x-transition
+          class="absolute size-8 text-brand-green"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+        <!-- X -->
+        <svg
+          x-show="open"
+          x-effect="document.body.classList.toggle('overflow-hidden', open)"
+          x-transition
+          class="absolute size-8 text-brand-red"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- MENÚ DESKTOP -->
+      <div class="hidden items-center gap-x-8 xl:gap-x-12 lg:flex">
+        <!-- Index -->
+        <a
+          href="/"
+          class={`transition font-semibold ${
+            isActive("/") ? "menu-item-active text-brand-green" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Home
+        </a>
+
+        <!-- About Us -->
+        <a
+          href="/about-us"
+          class={`transition font-semibold ${
+            isActive("/about-us") ? "menu-item-active text-brand-green" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          About Us
+        </a>
+
+        <!-- Our Services (dropdown) -->
+        <div class="relative" x-data="{ ddOpen: false }">
+          <button
+            type="button"
+            class={`relative inline-flex items-center gap-2 font-semibold transition ${
+              servicesActive ? "text-brand-green" : "text-gray-700 hover:text-brand-green"
+            }`}
+            aria-haspopup="true"
+            :aria-expanded="ddOpen.toString()"
+            @click="ddOpen = !ddOpen"
+            @keydown.escape.stop="ddOpen = false"
+            @click.outside="ddOpen = false"
+          >
+            <span>Our Services</span>
+
+            <svg
+              class={`h-4 w-4 transition-transform duration-200 ${servicesActive ? "text-brand-green" : ""}`}
+              :class="ddOpen ? 'rotate-180' : ''"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <span
+              class={`pointer-events-none absolute left-0 -bottom-2 h-0.5 w-full origin-left bg-brand-green transition-transform duration-200 ${
+                servicesActive ? "scale-x-100" : "scale-x-0"
+              }`}
+              :class="ddOpen ? 'scale-x-100' : ''"
+            ></span>
+          </button>
+
+          <ul
+            x-show="ddOpen"
+            x-transition
+            x-cloak
+            class="absolute left-0 mt-3 w-64 rounded-xl border border-gray-200 bg-white p-2 shadow-sm"
+          >
+            <li>
+              <a
+                href="/our-services/prism"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-services/prism") ? "font-semibold text-brand-green" : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                PRISM
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/our-services/cq-for-school"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-services/cq-for-school") ? "font-semibold text-brand-green" : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                CQ for Schools
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/our-services/cq-assessment"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-services/cq-assessment") ? "font-semibold text-brand-green" : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                CQ Assessment
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Our Customers (dropdown) -->
+        <div class="relative" x-data="{ ddOpen: false }">
+          <button
+            type="button"
+            class={`relative inline-flex items-center gap-2 font-semibold transition ${
+              customersActive ? "text-brand-green" : "text-gray-700 hover:text-brand-green"
+            }`}
+            aria-haspopup="true"
+            :aria-expanded="ddOpen.toString()"
+            @click="ddOpen = !ddOpen"
+            @keydown.escape.stop="ddOpen = false"
+            @click.outside="ddOpen = false"
+          >
+            <span>Our Customers</span>
+
+            <svg
+              class={`h-4 w-4 transition-transform duration-200 ${customersActive ? "text-brand-green" : ""}`}
+              :class="ddOpen ? 'rotate-180' : ''"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <span
+              class={`pointer-events-none absolute left-0 -bottom-2 h-0.5 w-full origin-left bg-brand-green transition-transform duration-200 ${
+                customersActive ? "scale-x-100" : "scale-x-0"
+              }`}
+              :class="ddOpen ? 'scale-x-100' : ''"
+            ></span>
+          </button>
+
+          <ul
+            x-show="ddOpen"
+            x-transition
+            x-cloak
+            class="absolute left-0 mt-3 w-80 rounded-xl border border-gray-200 bg-white p-2 shadow-sm"
+          >
+            <li>
+              <a
+                href="/our-customers/business-global-organization"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-customers/business-global-organization")
+                    ? "font-semibold text-brand-green"
+                    : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+              Businesses/Global Organizations
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/our-customers/international-school"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-customers/international-school")
+                    ? "font-semibold text-brand-green"
+                    : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                International Schools
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/our-customers/ngos-nonprofit"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-customers/ngos-nonprofit") ? "font-semibold text-brand-green" : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                NGOs/Non-Profits
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Insights -->
+        <!-- <a
+          href="/insights"
+          class={`transition font-semibold ${
+            isActive("/insights") ? "menu-item-active text-brand-green" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Insights
+        </a> -->
+
+        <!-- Contact -->
+        <a
+          href="/contact"
+          class={`transition font-semibold ${
+            isActive("/contact") ? "menu-item-active text-brand-green" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Contact
+        </a>
+
+        <!-- Request Consultation (button) -->
+        <a
+          href="/contact"
+          class="rounded-full bg-[#014650] px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
+          rel="noreferrer"
+        >
+          Request Consultation
+        </a>
+      </div>
+    </nav>
+
+    <!-- MENÚ MOBILE -->
+    <div x-show="open" x-transition.opacity x-cloak class="fixed inset-0 z-50 bg-white px-8 py-6 lg:hidden">
+      <div class="mt-20 space-y-3">
+        <a
+          href="/"
+          @click="open = false"
+          class={`block py-3 text-2xl font-semibold transition ${
+            isActive("/") ? "text-brand-green menu-item-active" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Home
+        </a>
+
+        <a
+          href="/about-us"
+          @click="open = false"
+          class={`block py-3 text-2xl font-semibold transition ${
+            isActive("/about-us") ? "text-brand-green menu-item-active" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          About Us
+        </a>
+
+        <!-- Our Services (mobile dropdown) -->
+        <div class="border-b border-gray-100 py-2" x-data="{ ddOpen: false }">
+          <button
+            type="button"
+            class={`flex w-full items-center justify-between py-3 text-2xl font-semibold transition ${
+              servicesActive ? "text-brand-green" : "text-gray-700 hover:text-brand-green"
+            }`}
+            @click="ddOpen = !ddOpen"
+            :aria-expanded="ddOpen.toString()"
+          >
+            <span>Our Services</span>
+
+            <svg
+              class="h-6 w-6 transition-transform duration-200"
+              :class="ddOpen ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-services/prism"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-services/prism") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              PRISM
+            </a>
+          </div>
+
+          <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-services/cq-for-school"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-services/cq-for-school") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              CQ for Schools
+            </a>
+          </div>
+
+           <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-services/cq-assessment"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-services/cq-assessment") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              CQ Assessment
+            </a>
+          </div>
+        </div>
+
+        <!-- Our Customers (mobile dropdown) -->
+        <div class="border-b border-gray-100 py-2" x-data="{ ddOpen: false }">
+          <button
+            type="button"
+            class={`flex w-full items-center justify-between py-3 text-2xl font-semibold transition ${
+              customersActive ? "text-brand-green" : "text-gray-700 hover:text-brand-green"
+            }`}
+            @click="ddOpen = !ddOpen"
+            :aria-expanded="ddOpen.toString()"
+          >
+            <span>Our Customers</span>
+
+            <svg
+              class="h-6 w-6 transition-transform duration-200"
+              :class="ddOpen ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-customers/business-global-organization"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-customers/business-global-organization") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+            Businesses/Global Organizations
+            </a>
+
+            <a
+              href="/our-customers/international-school"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-customers/international-school") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              International Schools
+            </a>
+
+            <a
+              href="/our-customers/ngos-nonprofit"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-customers/ngos-nonprofit") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              NGOs/Non-Profits
+            </a>
+          </div>
+        </div>
+
+        <a
+          href="/insights"
+          @click="open = false"
+          class={`block py-3 text-2xl font-semibold transition ${
+            isActive("/insights") ? "text-brand-green menu-item-active" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Insights
+        </a>
+
+        <a
+          href="/contact"
+          @click="open = false"
+          class={`block py-3 text-2xl font-semibold transition ${
+            isActive("/contact") ? "text-brand-green menu-item-active" : "text-gray-700 hover:text-brand-green"
+          }`}
+        >
+          Contact
+        </a>
+
+        <a
+          href="/contact"
+          @click="open = false"
+          class="mt-4 w-fit rounded-full bg-[#014650] px-6 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
+          rel="noreferrer"
+        >
+          Request Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

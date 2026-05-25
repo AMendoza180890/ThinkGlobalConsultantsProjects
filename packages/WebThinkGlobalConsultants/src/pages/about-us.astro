@@ -1,0 +1,92 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import SectionAbout from "~/components/SectionAbout.astro";
+import KLPicture from "~/assets/about/kl-cloud.webp";
+import SectionThreeCols from "~/components/SectionThreeCols.astro";
+import MeetOurTeam from "~/components/MeetOurTeam.astro";
+import SectionArticle from "~/components/SectionArticle.astro";
+import SectionCallAction from "~/components/SectionCallAction.astro";
+import SectionLogosCQ from "~/components/SectionLogoCQ.astro";
+
+import { Image } from "astro:assets";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <SectionAbout
+    title="We help leadership teams operate with clarity, alignment, and cultural intelligence."
+    description="Through our PRISM Service for organizations and CQ for Schools program, we equip leaders to navigate cultural complexity with confidence and measurable results."
+  >
+    <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={KLPicture}
+        alt="Product screenshot"
+        class="w-full h-full object-cover object-bottom rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
+
+  <!-- TODO: Add SectionThreeCols back in -->
+  <!-- <SectionThreeCols
+    header="Our Story"
+    title1="What We Saw"
+    title2="The Gap"
+    title3="What We Built"
+    description1="Leadership teams struggling with misalignment and cultural friction -- costing organizations trust, talent, and results."
+    description2="Existing approaches were too theoretical, lacked measurement, and offered no follow-through. Leaders were left without practical tools."
+    description3="A measurable, applied framework that equips leaders to lead across difference -- with accountability and real behavior change."
+  /> -->
+
+  <!-- TODO: Add MeetOurTeam back in -->
+  <!-- <MeetOurTeam
+    name1="Zach Dorroh"
+    role1="Co-Founder / CEO"
+    description1="Texas, USA"
+    name3="Lindsey Rush"
+    role3="Operations Director"
+    description3="Texas, USA"
+    name2="Callie Dorroh"
+    role2="Consultant"
+    description2="Texas, USA"
+    name4="Andrew Korkosc"
+    role4="Consultant"
+    description4="Texas, USA"
+    name5="Daniel Wallace"
+    role5="Consultant"
+    description5="Texas, USA"
+  /> -->
+
+  <SectionLogosCQ />
+
+  <SectionArticle
+    title="What Makes Us Different"
+    subtitle1="Evidence-Based"
+    subtitle2="Measurable Outcomes"
+    subtitle3="Applied Behavior Change"
+    description1="Built on validated Prism + CQ frameworks, not theory alone."
+    description2="Every engagement is tracked with pre/post assessments and clear KPIs."
+    description3="Coaching that sticks -- focused on real behavior shifts, not just awareness."
+  />
+
+  <SectionThreeCols
+    header="Who We Work With"
+    title1="Businesses / Global Organizations"
+    title2="International Schools"
+    title3="NGOs / Nonprofits"
+    description1="Leadership teams navigating cultural complexity at scale."
+    description2="School communities building CQ across teachers, staff, students,and parents."
+    description3="Mission-driven teams working across borders and cultures."
+  />
+
+  <SectionCallAction
+    title="Ready to Get Started?"
+    paragraph="Explore our services or get in touch to see how we can help your team."
+    button1="Request Consultation"
+    button2="Request Consultation"
+  />
+</Layout>

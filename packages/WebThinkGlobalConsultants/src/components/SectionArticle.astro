@@ -1,0 +1,80 @@
+---
+
+const { title, subtitle1, subtitle2, subtitle3, description1, description2, description3 } = Astro.props;
+import { Image } from "astro:assets";
+
+//icons
+import Business from "~/assets/Icons/business-white.svg";
+import School from "~/assets/Icons/school-white.svg";
+import Ngo from "~/assets/Icons/ngo-white.svg";
+---
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="text-4xl font-semibold tracking-tight text-balance text-[#3C788C] sm:text-5xl"
+      >
+        {title}
+      </h2>
+    </div>
+    <div
+      class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={Business} alt="Business Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          {subtitle1}
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          {description1}
+        </p>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image src={School} alt="School Icon" class="mx-auto h-12 w-12" />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          {subtitle2}
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          {description2}
+        </p>
+      </article>
+
+      <article
+        class="bg-[#3C788C] mx-auto flex min-h-65 max-w-sm flex-col items-center justify-center rounded-2xl border border-gray-200 p-6 text-center shadow-sm"
+      >
+        <!-- Favicon / icon -->
+        <Image
+          src={Ngo}
+          alt="Non-profit organization Icon"
+          class="mx-auto h-12 w-12"
+        />
+
+        <!-- Title -->
+        <h3 class="mt-4 text-xl font-semibold text-white">
+          {subtitle3}
+        </h3>
+
+        <!-- Paragraph -->
+        <p class="mt-2 text-sm leading-6 text-white">
+          {description3}
+        </p>
+      </article>
+    </div>
+  </div>
+</div>

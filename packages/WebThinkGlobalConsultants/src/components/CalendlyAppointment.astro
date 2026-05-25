@@ -1,0 +1,66 @@
+---
+const {
+  url = "https://calendly.com/thinkglobalconsultants-info/30min?primary_color=014650",
+  height = 700,
+  minWidth = 320,
+} = Astro.props;
+
+const id = `calendly-${crypto.randomUUID()}`;
+const CALENDLY_SRC = "https://assets.calendly.com/assets/external/widget.js";
+const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
+---
+
+<!-- (Opcional pero recomendado) CSS del widget -->
+<link rel="stylesheet" href={CALENDLY_CSS} />
+
+<div
+  id={id}
+  style={`min-width:${minWidth}px;height:${height}px;`}
+></div>
+
+<script is:inline define:vars={{ id, url, CALENDLY_SRC }}>
+  function loadCalendlyScript() {
+    return new Promise((resolve, reject) => {
+      if (window.Calendly) return resolve();
+
+      const existing = document.querySelector(`script[src="${CALENDLY_SRC}"]`);
+      if (existing) {
+        existing.addEventListener("load", () => resolve(), { once: true });
+        existing.addEventListener("error", () => reject(), { once: true });
+        return;
+      }
+
+      const s = document.createElement("script");
+      s.src = CALENDLY_SRC;
+      s.defer = true;
+      s.onload = () => resolve();
+      s.onerror = () => reject();
+      document.head.appendChild(s);
+    });
+  }
+
+  async function initCalendly() {
+    try {
+      await loadCalendlyScript();
+
+      const host = document.getElementById(id);
+      if (!host) return;
+
+      // Limpia por si el componente se vuelve a montar
+      host.innerHTML = "";
+
+      window.Calendly.initInlineWidget({
+        url,
+        parentElement: host,
+      });
+    } catch (e) {
+      // Fallback simple si el script fue bloqueado (adblock, tracking protection)
+      const host = document.getElementById(id);
+      if (host) {
+        host.innerHTML = `<a href="${url}" target="_blank" rel="noopener" style="display:inline-block;padding:12px 16px;border:1px solid #014650;border-radius:9999px;color:#014650;text-decoration:none;">Abrir Calendly</a>`;
+      }
+    }
+  }
+
+  initCalendly();
+</script>

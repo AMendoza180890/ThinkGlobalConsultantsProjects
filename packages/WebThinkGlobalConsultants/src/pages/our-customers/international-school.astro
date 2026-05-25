@@ -1,0 +1,68 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import SectionAbout from "~/components/SectionAbout.astro";
+import school from "~/assets/school/Schools-Photo.webp";
+import { Image } from "astro:assets";
+import SectionTwoCols from "~/components/SectionTwoCols.astro";
+import RoutingSectionsWithFourBoxes from "~/components/RoutingsectionsWithFourBoxes.astro";
+import FinalCTA from "~/components/FinalCTA.astro";
+import ButtonSquare from "~/components/ButtonSquare.astro";
+---
+
+<Layout>
+    <SectionAbout
+    title="Equip your school community to thrive across cultures."
+    description="We help international schools build cultural intelligence into leadership, teaching, and community life — so every student, teacher, and family feels they belong."
+  >
+    <div slot="details" class="mt-6">
+      <ButtonSquare
+        link="/our-services/cq-for-school"
+        label="Explore CQ for Schools"
+      >
+      <!-- </ButtonSquare>
+
+       <ButtonSquare
+        link="/our-services/prism"
+        label="Explore PRISM"
+    >-->
+      </ButtonSquare>
+    </div>
+    <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={school}
+        alt="School in Malaysia"
+        class="w-full h-full object-cover object-center rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
+
+  <SectionTwoCols> 
+    <div slot="left">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">Their Reality</h3>
+      <ul class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Students, families, and staff from dozens of cultural backgrounds</li>
+        <li>Teachers navigating identity, language, and learning differences daily</li>
+        <li>Leadership teams managing expectations across cultural norms</li>
+        <li>Community tensions that surface during transitions and change</li>
+      </ul>
+    </div>
+
+    <div slot="right">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">The Cost</h3>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Student wellbeing and sense of belonging</li>
+        <li>Teacher burnout and retention challenges</li>
+        <li>Parent trust and school community cohesion</li>
+        <li>Missed opportunities for truly global education</li>
+      </ol>
+    </div>
+  </SectionTwoCols>
+
+    <RoutingSectionsWithFourBoxes/>
+
+    <FinalCTA />
+
+</Layout>

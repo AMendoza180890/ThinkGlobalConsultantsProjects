@@ -1,0 +1,66 @@
+[
+	{
+		"id": 8,
+		"title": "Consider the Lilies",
+		"image": "/src/assets/portfolio/storytelling/afirst.webp",
+		"alt": "Consider the Lilies",
+        "url": "story1",
+        "description": "A story of how the Lord taught me that He has a plan for my life, written before starting the World Race."
+	},
+	{
+		"id": 7,
+		"title": "Goodbye Guatemala",
+		"image": "/src/assets/portfolio/storytelling/bsecond.webp",
+		"alt": "Goodbye Guatemala",
+        "url": "story2",
+        "description": "A story of how the Lord used the events we hosted in Guatemala to heal the hearts of His people."
+	},
+	{
+		"id": 6,
+		"title": "Silly Little Man-Made Limits",
+		"image": "/src/assets/portfolio/storytelling/cthird.webp",
+		"alt": "Silly Little Man-Made Limits",
+        "url": "story3",
+	"description": "A story of how the Lord spoke to me through an experience with a child and healed my heart in Honduras."
+	},
+	{
+		"id": 5,
+		"title": "Casa Esperanza - House of Hope",
+		"image": "/src/assets/portfolio/storytelling/dfouth.webp",
+		"alt": "Casa Esperanza - House of Hope",
+        "url": "story4",
+        "description": "A story of the ways the Lord used my team at House of Hope, a shelter for women and children in Nicaragua."
+	},
+	{
+		"id": 4,
+		"title": "To Be Treasured",
+		"image": "/src/assets/portfolio/storytelling/ffifth.webp",
+		"alt": "To Be Treasured",
+        "url": "story5",
+        "description": "A story of how the Lord showed me that He could use my creative gifts for His Kingdom in Nicaragua."
+	},
+	{
+		"id": 3,
+		"title": "Shadrach, Putin, And My Super Cool Ukrainian Friend",
+		"image": "/src/assets/portfolio/storytelling/gsix.webp",
+		"alt": "Shadrach, Putin, And My Super Cool Ukrainian Friend",
+        "url": "story6",
+        "description": "A story of how the Lord used Shadrach and Putin to teach me about forgiveness."
+	},
+	{
+		"id": 2,
+		"title": "Last Stop: Swaziland",
+		"image": "/src/assets/portfolio/storytelling/hseven.webp",
+		"alt": "Last Stop: Swaziland",
+        "url": "story7",
+        "description": "A story of how the Lord used jewelry to share the gospel with children in Swaziland."
+	},
+	{
+		"id": 1,
+		"title": "27 Doctors, 21 Translators, 487 Prostitutes, & Me",
+		"image": "/src/assets/portfolio/storytelling/ieight.webp",
+		"alt": "27 Doctors, 21 Translators, 487 Prostitutes, & Me",
+        "url": "story8",
+        "description": "A story of how the Lord used a medical brigade to share His love with almost 500 prostitutes in Nicaragua."
+	}
+]
